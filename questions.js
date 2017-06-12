@@ -75,34 +75,58 @@ var makeNegative = function(number) {
 }
 
 var numberOfPalindromes = function(array) {
-  return 'Write your method here';
+  var numPal = 0;
+  for (var i = 0; i < array.length; i++) {
+    array[i].split("").reverse().join("") == array[i] ? numPal++ : false;
+  }
+  return numPal;
 }
 
 var shortestWord = function(array) {
-  return 'Write your method here';
+  var shortest = Number.MAX_VALUE;
+
+  array.forEach(function(el) {
+    el.length < shortest ? shortest = el.length : false;
+  });
+
+  return array.filter(el => el.length == shortest).toString();
 }
 
 var longestWord = function(array) {
-  return 'Write your method here';
+  var longest = Number.MIN_VALUE;
+
+  array.forEach(function(el) {
+    el.length > longest ? longest = el.length : false;
+  });
+
+  return array.filter(el => el.length == longest).toString();
 }
 
 var sumNumbers = function(array) {
-  return 'Write your method here';
+  var sum = 0;
+
+  array.forEach(function(num) {
+    sum += num;
+  });
+  return sum;
 }
 
 var repeatElements = function(array) {
-  return 'Write your method here';
+  return array.join("").repeat(2).split("");
 }
 
 var stringToNumber = function(string) {
-  return 'Write your method here';
+  return parseInt(string);
 }
 
 var calculateAverage = function(array) {
-  return 'Write your method here';
+  sum = 0;
+  array.forEach(n => sum += n);
+  return sum / array.length;
 }
 
 var getElementsUntilGreaterThanFive = function(array) {
+
   return 'Write your method here';
 }
 
