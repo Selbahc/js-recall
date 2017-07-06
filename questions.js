@@ -179,7 +179,28 @@ var factorial = function(number) {
 }
 
 var findAnagrams = function(string) {
-  return 'Write your method here';
+
+  function permute(array) {
+    if (array.length === 1) return [array];
+    var fullPermutation = [];
+
+    for (var i in array) {
+      var subset = array.slice(0);
+      subset.splice(i, 1);
+
+      for (var permutation of permute(subset)) {
+        permutation.unshift(array[i]);
+        fullPermutation.push(permutation);
+      }
+    }
+    return fullPermutation
+  }
+
+  function joinLetters(array) {
+    return array.join('');
+  }
+
+  return permute(string.split('')).map(joinLetters);
 }
 
 var convertToCelsius = function(number) {
