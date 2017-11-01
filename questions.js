@@ -126,40 +126,80 @@ var calculateAverage = function(array) {
 }
 
 var getElementsUntilGreaterThanFive = function(array) {
-
-  return 'Write your method here';
+  var overFive = Infinity;
+  for (var i = 0; i < overFive; i++) {
+    if (array[i] > 5) overFive = i;
+  }
+  return array.splice(0, overFive);
 }
 
 var convertArrayToObject = function(array) {
-  return 'Write your method here';
+  return array.reduce((acc, cur, i, ar) => {
+    if (i % 2 === 0) {
+      acc[cur] = ar[i+1]
+    }
+    return acc
+  }, {});
 }
 
 var getAllLetters = function(array) {
-  return 'Write your method here';
+  return array
+    .join('')
+    .split('')
+    .sort()
+    .reduce((acc, cur) =>
+      acc.charAt(acc.length-1) !== cur ?
+      acc + cur
+      : acc)
+    .split('')
 }
 
 var swapKeysAndValues = function(object) {
-  return 'Write your method here';
+  for (let key in object) {
+    object[object[key]] = key
+    delete object[key]
+  }
+
+  return object
 }
 
 var sumKeysAndValues = function(object) {
-  return 'Write your method here';
+  let total = 0;
+
+  for (let key in object) {
+    total += Number(key);
+    total += Number(object[key]);
+  }
+
+  return total
 }
 
 var removeCapitals = function(string) {
-  return 'Write your method here';
+  return string
+    .split('')
+    .map((letter) => {
+      let code = letter.charCodeAt(0)
+      return code >= 65 && code <= 90 ? '' : letter
+    })
+    .join('')
 }
 
 var roundUp = function(number) {
-  return 'Write your method here';
+  return Math.ceil(number);
 }
 
 var formatDateNicely = function(date) {
-  return 'Write your method here';
+  let twoDigits = (num) => num < 10 ? '0' + num : num
+  return twoDigits(date.getDate())
+    + '/'
+    + twoDigits(date.getMonth()+1)
+    + '/'
+    + date.getFullYear()
 }
 
 var getDomainName = function(string) {
-  return 'Write your method here';
+  return string
+  .replace(/[A-Za-z]+@([A-Za-z]+.?[A-Za-z]*)(?:.uk|.com|.fr|.org)/g, '$1')
 }
 
 var titleize = function(string) {
